@@ -1,0 +1,1 @@
+wrappe -d Configtool -w command -s 1.0 "C:\Users\a.kay\Desktop\Configtool\components" "C:\Users\a.kay\Desktop\Configtool\components\initialize.cmd" "C:\Users\a.kay\Desktop\Configtool\ConfigTool.exe"
