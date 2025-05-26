@@ -570,7 +570,20 @@ if ($NiniteCheckbox9.Checked) {$NiniteLink = $NiniteLink + "-gimp"}
 if ($NiniteCheckbox10.Checked) {$NiniteLink = $NiniteLink + "-windirstat"}
 #Zum Schluss wird der Link um "/ninite.exe" erweitert und verweißt so direkt auf die Installer-.exe-Datei
 $NiniteLink = $NiniteLink + "/ninite.exe"
-Invoke-WebRequest "$NiniteLink" -OutFile "$toolpath\NiniteInstaller.exe"
+if (
+    $NiniteCheckbox1.Checked -or
+    $NiniteCheckbox2.Checked -or
+    $NiniteCheckbox3.Checked -or
+    $NiniteCheckbox4.Checked -or
+    $NiniteCheckbox5.Checked -or
+    $NiniteCheckbox6.Checked -or
+    $NiniteCheckbox7.Checked -or
+    $NiniteCheckbox8.Checked -or
+    $NiniteCheckbox9.Checked -or
+    $NiniteCheckbox10.Checked
+) {
+    Invoke-WebRequest "$NiniteLink" -OutFile "$toolpath\NiniteInstaller.exe"
+}
 #endregion Ninite
 #region MS/Office etc.(sollte immer die letzte Position sein)
 # Windows-Debloat ausführen
