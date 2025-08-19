@@ -1,3 +1,6 @@
+::Closes all other PowerShell instances (hard fix for clean up problems lol)
+taskkill /f /im powershell.exe
+
 ::Startet das auto execute Installer script
 start powershell.exe -Command "Start-Process powershell.exe '-NoExit -ExecutionPolicy Bypass -File ""C:\Temp\autoexecute.ps1""'"
 
