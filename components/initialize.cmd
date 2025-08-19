@@ -9,6 +9,6 @@ copy "%Temp%\Configtool\release\*" "%Homedrive%\Temp\"
 timeout -t 5
 ::Intialisierung abgeschlossen - Ausführen des Starterskripts im neues Tempordner
 ::Initialization complete - Execute Startingscript within new Tempdirectory
-start powershell.exe -Command "Start-Process powershell.exe '-NoExit -ExecutionPolicy Bypass -File ""C:\Temp\start.ps1""'"
+start powershell.exe -Command "Start-Process powershell.exe -WorkingDirectory C:\Temp '-NoExit -ExecutionPolicy Bypass -File ""C:\Temp\start.ps1""'"
 
 exit

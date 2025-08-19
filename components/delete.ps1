@@ -21,6 +21,9 @@ Remove-Item -Path "$InitalUser\AppData\Local\Temp\ConfigTool\" -Recurse -Force
 
 # Löscht den Tempordner unter C:
 # Delete new temporary folder
-Start-Process cmd.exe -Argumentlist '/c rd /s /q %homedrive%\Temp'
+Start-Process cmd.exe -Argumentlist '/c rd /s /q C:\Temp'
+
+taskkill.exe /f /t /im cmd.exe
+taskkill.exe /f /t /im powershell.exe
 
 exit
