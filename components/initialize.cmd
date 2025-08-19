@@ -5,7 +5,7 @@ mkdir %Homedrive%\Temp\
 timeout -t 5
 ::Alle benötigten Komponenten werden in das neue Tempverzeichnis kopiert
 ::Copy files to new temporary archive
-copy "%Temp%\Configtool\1.0\*" "%Homedrive%\Temp\"
+copy "%Temp%\Configtool\release\*" "%Homedrive%\Temp\"
 timeout -t 5
 ::Intialisierung abgeschlossen - Ausführen des Starterskripts im neues Tempordner
 ::Initialization complete - Execute Startingscript within new Tempdirectory
