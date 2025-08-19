@@ -47,7 +47,7 @@ else {
 Test-OfficeInstallation
 
 if(-NOT ($OfficeIsInstalled)) {
-    [System.Windows.Forms.MessageBox]::Show("Die Office-Produkte wurden erfolgreich deinstalliert. Das System startet jetzt neu!","Suche abgeschlossen",0,[System.Windows.Forms.MessageBoxIcon]::Information)
+    [System.Windows.Forms.MessageBox]::Show("Die Office-Produkte wurden erfolgreich deinstalliert.","Suche abgeschlossen",0,[System.Windows.Forms.MessageBoxIcon]::Information)
 
     # Autostart Cleanup wird gestartet
     Remove-Item "$env:HOMEDRIVE\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp\launch_office_uninstall.cmd" -Force
