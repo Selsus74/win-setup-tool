@@ -1,1 +1,1 @@
-wrappe -d Configtool -w command -s 1.0 ".\components" ".\components\initialize.cmd" ".\ConfigTool.exe"
+wrappe --cleanup -d Configtool -w command -s 1.0 ".\components" ".\components\initialize.cmd" ".\ConfigTool.exe"
