@@ -1,5 +1,5 @@
 #Get current user for temp cleaning
-$env:TEMP > $env:HOMEDRIVE\Temp\currenttemp.info
+$env:USERPROFILE > $env:HOMEDRIVE\Temp\currentuser.info
 
 #Start the Main-Script
 #Starten des Hauptskriptes

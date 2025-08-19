@@ -6,10 +6,12 @@ Add-Type -AssemblyName System.Drawing
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
 #region General
+$InitialUser = Get-Content "$env:HOMEDRIVE\Temp\currentuser.info"
 # Always apply these settings
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarAl -Value 0
 Stop-Process -Name explorer -Force
 Start-Process explorer.exe
+#endregion General
 
 #region Fenster
 #region Form und Groups
@@ -552,8 +554,7 @@ elseif ($EnrgyCheckbox2_2.Checked) {
 }
 #endregion Energieoptionen
 #region Downloads
-$toolpath = "$env:HOMEDRIVE\Tools"
-New-Item -ItemType Directory -Name Tools -Path "$env:HOMEDRIVE\"
+$toolpath = "$InitialUser\Downloads"
 
 if ($DownloadCheckbox1.Checked) {Invoke-WebRequest https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe -o "$toolpath\TeamViewer_Full.exe"}
 
