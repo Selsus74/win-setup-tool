@@ -5,6 +5,11 @@ Add-Type -AssemblyName System.Drawing
 
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
+#region General
+# Always apply these settings
+Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name TaskbarAl -Value 0
+Stop-Process -Name explorer -Force
+Start-Process explorer.exe
 
 #region Fenster
 #region Form und Groups
