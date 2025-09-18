@@ -2,12 +2,9 @@
 Add-Type -AssemblyName System.Windows.Forms
 # Funktion um auf vorhandene Officeinstallation zuprüfen
 function Test-OfficeInstallation {
-    $InstalledPackages = winget list --accept-source-agreements
-
-    if($InstalledPackages -match "O365") {
-        $script:OfficeIsInstalled = $true
-    }
-    elseif ($InstalledPackages -match "office") {
+    $InstalledPackages = Get-Package -Name "Microsoft 365*" | Select-Object -ExpandProperty Name
+    
+    if($InstalledPackages.Count -ge 1) {
         $script:OfficeIsInstalled = $true
     }
     else {
@@ -34,13 +31,9 @@ if(-NOT ($OfficeIsInstalled)) {
 else {
     [System.Windows.Forms.MessageBox]::Show("Es wurden installierte Officeprodukt gefunden. Diese werden jetzt entfernt.","Suche abgeschlossen",0,[System.Windows.Forms.MessageBoxIcon]::Information)
 
-    winget uninstall "office" --force --silent
-    winget uninstall "Microsoft 365 (Office)" --force --silent
-    winget uninstall "Microsoft 365 - de-de" --force --silent
-    winget uninstall "Microsoft 365 - en-gb" --force --silent
-    winget uninstall "Microsoft 365 - fr-fr" --force --silent
-    winget uninstall "Microsoft 365 - nl-nl" --force --silent
-    winget uninstall "Microsoft 365 - pl-pl" --force --silent
+    foreach ($InstalledPackage in $InstalledPackages) {
+        winget uninstall $InstalledPackage --silent
+    }
 }
 
 # Uninstall wird auf Erfolg getestet

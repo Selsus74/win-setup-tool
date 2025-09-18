@@ -13,7 +13,7 @@ if ($StartupFolder -contains "autostarter.cmd")
 
 # Löscht den Benutzerspezifischen Tempordner anhand zuvor gespeicherter Nutzer Daten
 $InitalUser = Get-Content "$env:HOMEDRIVE\Temp\currentuser.info"
-Remove-Item -Path "$InitalUser\AppData\Local\Temp\ConfigTool\" -Recurse -Force
+Remove-Item -Path "$InitalUser\AppData\Local\Temp\ConfigTool" -Recurse -Force
 
 # Info über Abschluss
 [System.Windows.Forms.MessageBox]::Show("Das ConfigTool hat die Einrichtung abgeschlossen","Fertig",0,[System.Windows.Forms.MessageBoxIcon]::Information)
