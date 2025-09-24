@@ -621,7 +621,14 @@ if ($BlockOutlookNewSwitch.Checked) {
 }
 # Vorinstalliertes Office entfernen (startet nach dem automatischen reboot)
 if ($RmvOfficeCheckbox.Checked) {
-    Start-Process -Verb RunAs powershell.exe "-ExecutionPolicy Bypass -File ""$env:HOMEDRIVE\Temp\office_uninstall.ps1"""
+    # Check if NuGet provider is available; if not, bootstrap it
+    if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
+        Install-PackageProvider -Name NuGet -Force -Confirm:$false
+    }
+    
+    Install-Module -Name Microsoft.WinGet.Client -Scope AllUsers -Force -Confirm:$false
+
+    Start-Process -Verb RunAs powershell.exe "-ExecutionPolicy Bypass -File ""$env:HOMEDRIVE\Temp\office_uninstall_part1.ps1"""
 }
 else {
     Start-Process -Verb RunAs "$env:HOMEDRIVE\Temp\autostarter.cmd"
