@@ -5,7 +5,7 @@ Import-Module Microsoft.WinGet.Client
 
 # Funktion um auf vorhandene Officeinstallation zuprüfen
 function Test-OfficeInstallation {
-    $InstalledPackages = Get-WinGetPackage -Name "Microsoft 365" | Select-Object -ExpandProperty Name
+    $script:InstalledPackages = Get-WinGetPackage -Name "Microsoft 365" | Select-Object -ExpandProperty Name
     
     if($InstalledPackages.Count -gt 0) {
         $script:OfficeIsInstalled = $true
@@ -36,5 +36,9 @@ else {
 
     Copy-Item "$env:HOMEDRIVE\Temp\launch_office_uninstall.cmd" -Destination "$env:HOMEDRIVE\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp"
 }
+
+Repair-WinGetPackageManager
+
+Restart-Computer
 
 exit
