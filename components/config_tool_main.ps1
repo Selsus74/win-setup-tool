@@ -517,9 +517,14 @@ $MSOfficeGroup.Controls.Add($BlockOutlookNewSwitch)
 
 [void]$Window.ShowDialog()
 
-#region Einstellungen von oben werden angewandt
 if ($Window.DialogResult -eq "OK") {}
-else {exit}
+else {
+    Start-Process -Verb RunAs powershell.exe '-ExecutionPolicy Bypass -File ""C:\Temp\delete.ps1""'
+
+    exit
+}
+
+#region Einstellungen von oben werden angewandt
 #region Lokaler Nutzer
 if ($UserCheck1.Checked) {
     if ($UserCheck3.Checked) {net user $UsernameTextbox.Text $UserPwTextbox.Text /add}
