@@ -1,8 +1,5 @@
 #Get current user for temp cleaning
-$env:USERPROFILE > $env:HOMEDRIVE\Temp\currentuser.info
-
-#Veruch für TroubleShooting
-taskkill.exe /f /t /im cmd.exe
+$env:USERPROFILE | Out-File "$env:HOMEDRIVE\Temp\currentuser.info"
 
 #Start the Main-Script
 #Starten des Hauptskriptes
