@@ -20,7 +20,7 @@ Remove-Item -Path "$InitalUser\AppData\Local\Temp\ConfigTool" -Recurse -Force
 
 
 # Löscht den Tempordner unter C:
-# Delete new temporary folder
+# Delete new temporary folder and close obsolete powershell sessions(fixes a problem with ps windows after programm exit)
 Start-Process -FilePath "cmd.exe" -ArgumentList "/c `"cd c:\ & rmdir C:\Temp /s /q & taskkill /f /im powershell.exe`""
 
 exit
