@@ -500,15 +500,22 @@ $DebloatCheckbox.Text = "Run Windows-Debloat"
 $DebloatCheckbox.ForeColor = $Blue
 $MSOfficeGroup.Controls.Add($DebloatCheckbox)
 
+$RemoveAICheckbox = [System.Windows.Forms.CheckBox]::new()
+$RemoveAICheckbox.Location = [System.Drawing.Point]::new(15,105)
+$RemoveAICheckbox.AutoSize = $true
+$RemoveAICheckbox.Text = "Remove AI Features"
+$RemoveAICheckbox.ForeColor = $Blue
+$MSOfficeGroup.Controls.Add($RemoveAICheckbox)
+
 $RemoveOutlookNew = [System.Windows.Forms.CheckBox]::new()
-$RemoveOutlookNew.Location = [System.Drawing.Point]::new(15,105)
+$RemoveOutlookNew.Location = [System.Drawing.Point]::new(15,135)
 $RemoveOutlookNew.AutoSize = $true
 $RemoveOutlookNew.Text = "Remove Outlook New"
 $RemoveOutlookNew.ForeColor = $Blue
 $MSOfficeGroup.Controls.Add($RemoveOutlookNew)
 
 $BlockOutlookNewSwitch = [System.Windows.Forms.CheckBox]::new()
-$BlockOutlookNewSwitch.Location = [System.Drawing.Point]::new(15,135)
+$BlockOutlookNewSwitch.Location = [System.Drawing.Point]::new(15,165)
 $BlockOutlookNewSwitch.AutoSize = $true
 $BlockOutlookNewSwitch.Text = "Block OutlookNew auto switch(Only MS 365 Business Apps)"
 $BlockOutlookNewSwitch.ForeColor = $Blue
@@ -600,6 +607,10 @@ if (
 # Windows-Debloat ausführen
 if ($DebloatCheckbox.Checked) {
     & ([scriptblock]::Create((Invoke-RestMethod "https://win11debloat.raphi.re/"))) -RunDefaults -Silent
+}
+# AI Features Removen
+if ($RemoveAICheckbox.Checked) {
+    & ([scriptblock]::Create((Invoke-RestMethod "https://raw.githubusercontent.com/zoicware/RemoveWindowsAI/main/RemoveWindowsAi.ps1")))
 }
 # Outlook New entfernen
 if ($RemoveOutlookNew.Checked) {
