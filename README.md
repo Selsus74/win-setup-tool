@@ -24,6 +24,6 @@ Features:
 4.5 Registrieren einer neuen Aufgabe in der Windows-Aufgabenplanung um die Umstellung auf Outlook New per PowerShell-Skript zu verhindern.
 
 
-Das Tool läuft nach dem Einstellungen getroffen selbstständig. Währenddessen sollte das Gerät nicht genutzt werden.
+Das Tool läuft nach dem Einstellungen getroffen (weitestgehend) selbstständig. Währenddessen sollte das Gerät nicht genutzt werden.
 Die Office Deinstallation muss mit Nutzereingaben bestätigt werden.
 Wenn das Tool fertig ist (also nachdem neu gestartet wurde) gibt es eine Meldung.
