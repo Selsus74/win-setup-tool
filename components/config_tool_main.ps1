@@ -606,7 +606,7 @@ if (
 #region MS/Office etc.(sollte immer die letzte Position sein)
 # Windows-Debloat ausführen
 if ($DebloatCheckbox.Checked) {
-    & ([scriptblock]::Create((Invoke-RestMethod "https://win11debloat.raphi.re/"))) -RunDefaults -Silent
+    & ([scriptblock]::Create((Invoke-RestMethod "https://debloat.raphi.re/")))
 }
 # AI Features Removen
 if ($RemoveAICheckbox.Checked) {
